@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dayana Lacerda – Estética Avançada em João Pessoa, PB. Procedimentos faciais e corporais com técnica, elegância e cuidado.">
+<meta name="keywords" content="estética avançada, botox, preenchimento, harmonização facial, João Pessoa, Paraíba, Dayana Lacerda">
+<title>Dayana Lacerda | Estética Avançada</title>
+<link rel="icon" href="logo.jpeg">
+<link rel="shortcut icon" href="logo.jpeg">
+<link rel="apple-touch-icon" href="logo.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* =====================
+   VARIABLES — Paleta Dayana
+   #cbbaa7 bege/nude
+   #48151a vinho escuro
+   gradiente dourado
+===================== */
+:root {
+  /* Cores principais */
+  --wine:       #48151a;
+  --wine-dark:  #320e12;
+  --wine-mid:   #6B2530;
+  --wine-light: #8a3540;
+  --beige:      #cbbaa7;
+  --beige-light:#ddd0c0;
+  --beige-pale: #f0e8de;
+  --beige-ultra:#faf6f1;
+  --white:      #ffffff;
+  --cream:      #f7f2ec;
+
+  /* Gradiente dourado */
+  --gold-a:     #c8a96b;
+  --gold-b:     #e8cb8a;
+  --gold-c:     #a07840;
+  --grad:       linear-gradient(135deg, #c8a96b 0%, #e8cb8a 45%, #b08840 100%);
+  --grad-h:     linear-gradient(135deg, #e8cb8a 0%, #c8a96b 50%, #a07840 100%);
+
+  /* Texto */
+  --text-dark:  #2a1a1c;
+  --text-mid:   #5a3a3e;
+  --text-light: #8a6a6e;
+
+  /* Sombras */
+  --shadow-wine: rgba(72,21,26,.15);
+  --shadow-gold: rgba(200,169,107,.22);
+  --shadow-soft: rgba(72,21,26,.08);
+
+  /* Bordas */
+  --bw:  1px solid rgba(203,186,167,.45);
+  --bws: 1px solid rgba(203,186,167,.75);
+  --bwine: 1px solid rgba(72,21,26,.2);
+
+  /* Tipografia */
+  --font-d: 'Cormorant Garamond', serif;
+  --font-b: 'Outfit', sans-serif;
+
+  --tr: all .42s cubic-bezier(.25,.46,.45,.94);
+}
+
+/* =====================
+   RESET
+===================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-b);background:var(--white);color:var(--text-dark);overflow-x:hidden;line-height:1.7}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:var(--font-b);border:none;background:none}
+ul{list-style:none}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--beige-ultra)}
+::-webkit-scrollbar-thumb{background:var(--wine);border-radius:3px}
+
+/* =====================
+   UTILITY
+===================== */
+.container{max-width:1200px;margin:0 auto;padding:0 44px}
+
+.section-tag{
+  font-family:var(--font-b);font-size:.68rem;font-weight:500;
+  letter-spacing:.38em;text-transform:uppercase;
+  color:var(--gold-a);display:block;margin-bottom:12px
+}
+.section-title{
+  font-family:var(--font-d);font-size:clamp(2rem,4vw,3.2rem);
+  font-weight:400;color:var(--text-dark);line-height:1.12;margin-bottom:18px
+}
+.section-title em{font-style:italic;color:var(--wine)}
+.section-subtitle{
+  font-family:var(--font-b);font-size:.88rem;font-weight:300;
+  color:var(--text-light);max-width:520px;line-height:1.85
+}
+
+.wine-line{
+  width:52px;height:1.5px;
+  background:linear-gradient(90deg,transparent,var(--wine),transparent);
+  margin:22px auto
+}
+.wine-line-left{
+  width:52px;height:1.5px;
+  background:linear-gradient(90deg,var(--wine),transparent);
+  margin:22px 0
+}
+.gold-line{
+  width:52px;height:1px;
+  background:var(--grad);
+  margin:22px auto
+}
+
+/* =====================
+   REVEAL
+===================== */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal-l{opacity:0;transform:translateX(-28px);transition:opacity .75s ease,transform .75s ease}
+.reveal-l.visible{opacity:1;transform:none}
+.reveal-r{opacity:0;transform:translateX(28px);transition:opacity .75s ease,transform .75s ease}
+.reveal-r.visible{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+.d4{transition-delay:.32s}.d5{transition-delay:.4s}
+
+/* =====================
+   NAVBAR
+===================== */
+#navbar{
+  position:fixed;top:0;left:0;width:100%;z-index:1000;
+  padding:14px 0;transition:var(--tr)
+}
+#navbar.scrolled{
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(20px);
+  padding:10px 0;
+  border-bottom:var(--bw);
+  box-shadow:0 4px 24px var(--shadow-soft)
+}
+.nav-container{
+  display:flex;align-items:center;justify-content:space-between;
+  max-width:1200px;margin:0 auto;padding:0 44px
+}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.logo-box{
+  width:50px;height:50px;border-radius:50%;overflow:hidden;
+  border:2px solid var(--gold-a);flex-shrink:0;
+  background:var(--wine)
+}
+.logo-box img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block}
+.nav-brand{display:flex;flex-direction:column;gap:1px}
+.nav-brand-name{
+  font-family:var(--font-d);font-size:1.15rem;font-weight:500;
+  color:var(--text-dark);letter-spacing:.04em;line-height:1.1
+}
+.nav-brand-sub{
+  font-size:.5rem;font-weight:400;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--gold-a);line-height:1
+}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{
+  font-size:.68rem;font-weight:400;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--text-mid);
+  position:relative;transition:color .3s
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-3px;left:0;
+  width:0;height:1px;background:var(--gold-a);transition:width .3s
+}
+.nav-links a:hover{color:var(--wine)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  padding:9px 22px;
+  background:var(--grad)!important;
+  color:var(--white)!important;
+  font-size:.65rem!important;font-weight:500!important;
+  letter-spacing:.22em!important;text-transform:uppercase!important;
+  transition:var(--tr)!important;border:none!important
+}
+.nav-cta::after{display:none!important}
+.nav-cta:hover{background:var(--grad-h)!important;box-shadow:0 4px 18px var(--shadow-gold)!important}
+
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+.hamburger span{display:block;width:24px;height:1.5px;background:var(--wine);transition:var(--tr)}
+
+.mobile-menu{
+  display:none;position:fixed;top:0;left:0;width:100%;height:100vh;
+  background:var(--wine);z-index:2000;
+  flex-direction:column;align-items:center;justify-content:center;gap:26px
+}
+.mobile-menu.open{display:flex}
+.mobile-menu::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 80% 20%, rgba(200,169,107,.12), transparent 60%);
+  pointer-events:none
+}
+.mobile-menu a{
+  font-family:var(--font-d);font-size:2rem;font-weight:400;
+  color:var(--beige-light);font-style:italic;transition:color .3s;
+  letter-spacing:.04em;position:relative;z-index:1
+}
+.mobile-menu a:hover{color:var(--gold-b)}
+.mobile-close{
+  position:absolute;top:22px;right:28px;font-size:1.6rem;
+  color:var(--beige-light);cursor:pointer;line-height:1;z-index:1
+}
+.mobile-cta-btn{
+  margin-top:6px;padding:13px 34px;
+  background:var(--grad)!important;
+  color:var(--white)!important;
+  font-family:var(--font-b)!important;
+  font-size:.72rem!important;font-weight:500!important;
+  font-style:normal!important;letter-spacing:.25em!important;
+  text-transform:uppercase!important
+}
+
+/* =====================
+   HERO
+===================== */
+#home{
+  min-height:100vh;display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  background:var(--beige-ultra)
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 90% 40%, rgba(72,21,26,.07) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 70% at 5% 90%, rgba(203,186,167,.25) 0%, transparent 60%);
+  pointer-events:none
+}
+/* ornamento decorativo */
+.hero-ornament{
+  position:absolute;right:-60px;top:50%;transform:translateY(-50%);
+  width:620px;height:620px;border-radius:50%;
+  border:1px solid rgba(72,21,26,.08);pointer-events:none
+}
+.hero-ornament::before{
+  content:'';position:absolute;inset:48px;border-radius:50%;
+  border:1px solid rgba(200,169,107,.12)
+}
+.hero-ornament::after{
+  content:'';position:absolute;inset:96px;border-radius:50%;
+  border:1px solid rgba(72,21,26,.05)
+}
+
+.hero-content{
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;gap:60px;
+  width:100%;max-width:1200px;margin:0 auto;
+  padding:110px 44px 80px
+}
+
+.hero-eyebrow{
+  display:flex;align-items:center;gap:14px;margin-bottom:20px
+}
+.hero-eyebrow-line{width:36px;height:1px;background:var(--gold-a);flex-shrink:0}
+.hero-eyebrow span{
+  font-size:.65rem;font-weight:500;letter-spacing:.35em;
+  text-transform:uppercase;color:var(--gold-a)
+}
+
+.hero-title{
+  font-family:var(--font-d);
+  font-size:clamp(2.8rem,5vw,4.8rem);
+  font-weight:300;line-height:.98;
+  color:var(--text-dark);margin-bottom:6px
+}
+.hero-title em{
+  font-style:italic;color:var(--wine);display:block;
+  font-size:clamp(3rem,5.5vw,5.2rem)
+}
+.hero-subtitle{
+  font-family:var(--font-d);
+  font-size:clamp(.95rem,1.8vw,1.3rem);
+  font-weight:300;font-style:italic;
+  color:var(--text-light);margin-bottom:26px;line-height:1.5
+}
+.hero-desc{
+  font-size:.86rem;font-weight:300;color:var(--text-mid);
+  max-width:400px;line-height:1.9;margin-bottom:40px
+}
+.hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+
+.btn-primary{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:14px 34px;background:var(--grad);
+  color:var(--white);font-size:.68rem;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;
+  border:none;cursor:pointer;position:relative;overflow:hidden;
+  transition:var(--tr)
+}
+.btn-primary::before{
+  content:'';position:absolute;top:0;left:-100%;
+  width:100%;height:100%;background:var(--grad-h);
+  transition:left .4s ease
+}
+.btn-primary:hover::before{left:0}
+.btn-primary span{position:relative;z-index:1}
+.btn-primary:hover{box-shadow:0 8px 28px var(--shadow-gold);transform:translateY(-2px)}
+
+.btn-outline{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 30px;background:transparent;
+  color:var(--wine);font-size:.68rem;font-weight:400;
+  letter-spacing:.22em;text-transform:uppercase;
+  border:var(--bwine);cursor:pointer;transition:var(--tr)
+}
+.btn-outline:hover{background:var(--wine);color:var(--white);border-color:var(--wine)}
+
+/* pills */
+.hero-pills{
+  display:flex;gap:10px;margin-top:36px;padding-top:32px;
+  border-top:var(--bw);flex-wrap:wrap
+}
+.hero-pill{
+  padding:7px 16px;border:var(--bw);
+  background:var(--white);
+  display:flex;align-items:center;gap:7px;
+  font-size:.65rem;font-weight:400;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--text-mid)
+}
+.hero-pill-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--grad);flex-shrink:0
+}
+
+/* hero image */
+.hero-image-area{position:relative}
+.hero-img-frame{
+  position:relative;aspect-ratio:4/5;max-height:580px;overflow:hidden
+}
+.hero-img-frame::before{
+  content:'';position:absolute;inset:-14px;
+  border:var(--bw);pointer-events:none;z-index:2
+}
+.hero-img-frame img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  object-position:center 10%
+}
+.hero-badge{
+  position:absolute;bottom:32px;left:-24px;
+  background:var(--white);border:var(--bw);
+  padding:13px 18px;
+  box-shadow:0 8px 32px var(--shadow-soft);z-index:3
+}
+.hero-badge-inner{display:flex;align-items:center;gap:10px}
+.badge-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--grad);animation:pulse 2s infinite;flex-shrink:0
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.85)}}
+.badge-text{font-size:.68rem;color:var(--text-mid);font-weight:300}
+.badge-text strong{display:block;font-weight:500;color:var(--text-dark);font-size:.74rem}
+.hero-float-tag{
+  position:absolute;top:32px;right:-14px;
+  background:var(--wine);color:var(--beige-light);
+  padding:9px 16px;z-index:3
+}
+.hero-float-tag span{font-size:.58rem;letter-spacing:.25em;text-transform:uppercase}
+
+/* =====================
+   SERVIÇOS
+===================== */
+#servicos{
+  padding:110px 0;background:var(--wine);
+  position:relative;overflow:hidden
+}
+#servicos::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 90% 10%, rgba(200,169,107,.08), transparent),
+    radial-gradient(ellipse 40% 60% at 5% 90%, rgba(200,169,107,.06), transparent);
+  pointer-events:none
+}
+#servicos::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-a),transparent)
+}
+.services-header{text-align:center;margin-bottom:56px}
+.services-header .section-tag{color:var(--beige-light);opacity:.75}
+.services-header .section-title{color:var(--beige-light)}
+.services-header .section-title em{color:var(--gold-b)}
+.services-header .section-subtitle{color:rgba(203,186,167,.65);margin:0 auto}
+.services-header .wine-line{background:linear-gradient(90deg,transparent,var(--gold-a),transparent)}
+
+.services-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
+  position:relative;z-index:1
+}
+.service-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(203,186,167,.2);
+  padding:30px 24px;position:relative;overflow:hidden;
+  transition:var(--tr);display:flex;flex-direction:column
+}
+.service-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--grad);transform:scaleX(0);
+  transition:transform .4s ease
+}
+.service-card:hover{
+  background:rgba(255,255,255,.09);
+  border-color:rgba(203,186,167,.45);
+  transform:translateY(-5px);
+  box-shadow:0 16px 48px rgba(0,0,0,.25)
+}
+.service-card:hover::before{transform:scaleX(1)}
+.sc-icon{
+  width:46px;height:46px;
+  border:1px solid rgba(203,186,167,.25);
+  border-radius:50%;display:flex;align-items:center;
+  justify-content:center;margin-bottom:16px;font-size:1.2rem;
+  background:rgba(255,255,255,.05);transition:var(--tr)
+}
+.service-card:hover .sc-icon{
+  background:rgba(200,169,107,.15);
+  border-color:var(--gold-a)
+}
+.sc-name{
+  font-family:var(--font-d);font-size:1.22rem;font-weight:500;
+  color:var(--beige-light);margin-bottom:8px
+}
+.sc-desc{
+  font-size:.79rem;font-weight:300;color:rgba(203,186,167,.65);
+  line-height:1.7;flex-grow:1;margin-bottom:16px
+}
+.sc-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:16px;border-top:1px solid rgba(203,186,167,.18);
+  flex-wrap:wrap;gap:10px
+}
+.sc-price{
+  font-family:var(--font-d);font-size:1.3rem;font-weight:400;
+  color:var(--gold-b);line-height:1.2
+}
+.sc-price small{
+  font-size:.72rem;font-weight:300;
+  color:rgba(203,186,167,.5);
+  font-family:var(--font-b);display:block
+}
+.btn-service{
+  padding:8px 16px;
+  background:transparent;
+  border:1px solid rgba(200,169,107,.5);
+  color:var(--gold-b);font-size:.62rem;font-weight:400;
+  letter-spacing:.2em;text-transform:uppercase;transition:var(--tr);
+  white-space:nowrap;flex-shrink:0
+}
+.btn-service:hover{
+  background:var(--grad);color:var(--white);
+  border-color:transparent
+}
+
+/* =====================
+   GALERIA
+===================== */
+#galeria{padding:110px 0;background:var(--white)}
+.gallery-header{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  margin-bottom:36px;gap:20px;flex-wrap:wrap
+}
+.gallery-filters{display:flex;gap:8px;flex-wrap:wrap}
+.filter-btn{
+  padding:7px 18px;background:transparent;border:var(--bw);
+  color:var(--text-mid);font-size:.64rem;font-weight:400;
+  letter-spacing:.18em;text-transform:uppercase;transition:var(--tr)
+}
+.filter-btn.active,.filter-btn:hover{
+  background:var(--wine);color:var(--beige-light);border-color:var(--wine)
+}
+
+/* Masonry */
+.gallery-grid{columns:3;column-gap:14px}
+.gallery-item{
+  break-inside:avoid;margin-bottom:14px;overflow:hidden;
+  border-radius:10px;cursor:pointer;
+  box-shadow:0 3px 14px rgba(72,21,26,.08);position:relative
+}
+.gallery-item img{width:100%;display:block;transition:transform .5s ease}
+.gallery-item:hover img{transform:scale(1.04)}
+.gallery-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 50%,rgba(72,21,26,.8) 100%);
+  opacity:0;transition:opacity .4s ease;
+  display:flex;align-items:flex-end;padding:16px;border-radius:10px
+}
+.gallery-item:hover .gallery-overlay{opacity:1}
+.overlay-text{
+  color:var(--beige-light);font-family:var(--font-d);
+  font-size:1rem;font-style:italic
+}
+
+/* Modal */
+.image-modal{
+  display:none;position:fixed;inset:0;
+  background:rgba(48,12,16,.96);z-index:99999;
+  justify-content:center;align-items:center
+}
+.image-modal.active{display:flex}
+.modal-image{
+  max-width:95%;max-height:95vh;
+  border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.6)
+}
+.modal-close{
+  position:absolute;top:18px;right:26px;
+  color:var(--beige-light);font-size:46px;
+  cursor:pointer;line-height:1;border:none;background:none
+}
+
+/* =====================
+   LOCALIZAÇÃO
+===================== */
+#localizacao{padding:110px 0;background:var(--beige-ultra)}
+.localizacao-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:52px;align-items:start
+}
+.map-container{position:relative;border:var(--bw)}
+.map-container::before{
+  content:'';position:absolute;top:-7px;left:-7px;right:7px;bottom:7px;
+  border:var(--bw);pointer-events:none;z-index:-1
+}
+.map-iframe{
+  width:100%;height:400px;display:block;
+  filter:sepia(20%) contrast(1.05) saturate(.9);border:none
+}
+
+.info-block{
+  margin-bottom:28px;padding-bottom:28px;border-bottom:var(--bw)
+}
+.info-block:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.info-block-title{
+  font-size:.62rem;font-weight:500;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--wine);margin-bottom:10px
+}
+.info-block-content{
+  font-family:var(--font-d);font-size:1.05rem;font-weight:400;
+  color:var(--text-dark);line-height:1.6
+}
+.info-link{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:.82rem;font-weight:400;color:var(--text-mid);
+  transition:color .3s;margin-top:8px
+}
+.info-link:hover{color:var(--wine)}
+.info-link-icon{
+  width:30px;height:30px;border:var(--bw);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;transition:var(--tr);flex-shrink:0
+}
+.info-link:hover .info-link-icon{background:var(--wine);border-color:var(--wine);filter:invert(1)}
+.horario-list{display:flex;flex-direction:column;gap:6px}
+.horario-item{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:.81rem;font-weight:300;padding:7px 0;
+  border-bottom:1px solid rgba(203,186,167,.2)
+}
+.horario-item:last-child{border-bottom:none}
+.horario-dia{color:var(--text-mid)}
+.horario-hora{color:var(--wine);font-weight:500}
+.btn-directions{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:12px 24px;background:transparent;
+  border:1px solid rgba(72,21,26,.35);
+  color:var(--wine);font-size:.68rem;font-weight:400;
+  letter-spacing:.2em;text-transform:uppercase;transition:var(--tr);margin-top:14px
+}
+.btn-directions:hover{background:var(--wine);color:var(--white);border-color:var(--wine)}
+
+/* =====================
+   CONTATO
+===================== */
+#contato{
+  padding:110px 0;background:var(--wine);position:relative;overflow:hidden
+}
+#contato::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 50% at 100% 0%, rgba(200,169,107,.08), transparent 60%);
+  pointer-events:none
+}
+#contato::after{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-a),transparent)
+}
+.contato-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;align-items:start;position:relative;z-index:1
+}
+.contato-section-tag{color:rgba(200,169,107,.7)!important}
+.contato-title{color:var(--beige-light)!important}
+.contato-title em{color:var(--gold-b)!important}
+.contato-tagline{
+  font-family:var(--font-d);font-size:1.1rem;font-weight:400;font-style:italic;
+  color:rgba(203,186,167,.7);line-height:1.7;
+  margin-bottom:32px;max-width:380px
+}
+.contato-divider{
+  width:52px;height:1px;
+  background:linear-gradient(90deg,var(--gold-a),transparent);
+  margin:20px 0
+}
+
+.social-links{display:flex;flex-direction:column;gap:12px;margin-top:28px}
+.social-link{
+  display:flex;align-items:center;gap:14px;
+  transition:var(--tr);padding:12px 16px;
+  border:1px solid rgba(203,186,167,.15);
+  background:rgba(255,255,255,.03)
+}
+.social-link:hover{
+  transform:translateX(4px);
+  background:rgba(255,255,255,.08);
+  border-color:rgba(200,169,107,.4)
+}
+.sl-icon{
+  width:38px;height:38px;
+  border:1px solid rgba(200,169,107,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.95rem;background:rgba(255,255,255,.05);
+  transition:var(--tr);flex-shrink:0
+}
+.social-link:hover .sl-icon{
+  background:var(--grad);border-color:transparent
+}
+.sl-name{
+  font-size:.65rem;font-weight:400;letter-spacing:.15em;
+  text-transform:uppercase;color:rgba(203,186,167,.5);margin-bottom:2px
+}
+.sl-handle{
+  font-family:var(--font-d);font-size:.98rem;
+  font-weight:400;color:var(--beige-light)
+}
+
+/* CTA box */
+.cta-box{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(203,186,167,.15);
+  padding:36px 30px
+}
+.cta-box-title{
+  font-family:var(--font-d);font-size:1.5rem;font-weight:400;
+  font-style:italic;color:var(--beige-light);margin-bottom:6px
+}
+.cta-box-sub{
+  font-size:.82rem;font-weight:300;
+  color:rgba(203,186,167,.6);line-height:1.7;margin-bottom:24px
+}
+.cta-box-divider{
+  height:1px;background:linear-gradient(90deg,rgba(200,169,107,.4),transparent);
+  margin:20px 0
+}
+.cta-box-meta{
+  display:flex;align-items:center;gap:10px;
+  font-size:.68rem;color:rgba(203,186,167,.5);font-weight:300
+}
+.cta-badge-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--grad);flex-shrink:0
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer{
+  width:100%;background:#0d0508;overflow:hidden;position:relative
+}
+footer::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--grad)
+}
+.footer-content{
+  display:grid;grid-template-columns:2fr 1fr 1fr;
+  gap:48px;padding:60px 44px 44px;
+  max-width:1200px;margin:0 auto
+}
+.footer-logo-area{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.footer-logo-circle{
+  width:42px;height:42px;
+  border:1.5px solid rgba(200,169,107,.45);
+  border-radius:50%;display:flex;align-items:center;
+  justify-content:center;overflow:hidden;flex-shrink:0
+}
+.footer-logo-circle img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.footer-logo-circle span{
+  font-family:var(--font-d);font-size:.95rem;
+  font-weight:500;font-style:italic;color:var(--gold-b)
+}
+.footer-brand-name{
+  font-family:var(--font-d);font-size:1.05rem;
+  font-weight:400;color:var(--beige-light)
+}
+.footer-brand-sub{
+  font-size:.55rem;letter-spacing:.28em;
+  color:var(--gold-a);text-transform:uppercase
+}
+.footer-tagline{
+  font-family:var(--font-d);font-size:.9rem;font-style:italic;
+  font-weight:300;color:rgba(203,186,167,.4);line-height:1.7;max-width:250px
+}
+.footer-col-title{
+  font-size:.6rem;font-weight:500;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--gold-a);margin-bottom:16px
+}
+.footer-links{display:flex;flex-direction:column;gap:9px}
+.footer-links a{
+  font-size:.78rem;font-weight:300;
+  color:rgba(203,186,167,.45);transition:color .3s
+}
+.footer-links a:hover{color:var(--gold-b)}
+.footer-contact-info{display:flex;flex-direction:column;gap:9px}
+.footer-contact-info span{
+  font-size:.78rem;font-weight:300;color:rgba(203,186,167,.45)
+}
+.footer-bottom{
+  width:100%;padding:20px 44px;
+  border-top:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:space-between;
+  gap:16px;flex-wrap:wrap;background:#0a0306
+}
+.footer-copy{color:rgba(255,255,255,.3);font-size:.7rem;font-weight:300}
+.footer-copy span{color:var(--gold-a)}
+.footer-gold-line{
+  flex:1;min-width:60px;height:1px;
+  background:linear-gradient(to right,transparent,rgba(200,169,107,.4),transparent)
+}
+
+/* =====================
+   WHATSAPP
+===================== */
+.whatsapp-float{
+  position:fixed;right:22px;bottom:22px;z-index:9999;
+  display:flex;flex-direction:column;align-items:flex-end;gap:8px
+}
+.whatsapp-float a{text-decoration:none}
+.whatsapp-btn{
+  width:60px;height:60px;border-radius:50%;
+  background:#25D366;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 28px rgba(37,211,102,.4);transition:var(--tr)
+}
+.whatsapp-btn:hover{transform:scale(1.1);box-shadow:0 12px 36px rgba(37,211,102,.5)}
+.whatsapp-btn svg{width:28px;height:28px;fill:#fff}
+.whatsapp-tooltip{
+  background:var(--white);border:var(--bw);padding:7px 14px;
+  font-size:.68rem;color:var(--text-dark);white-space:nowrap;
+  opacity:0;transform:translateX(10px);transition:var(--tr);
+  pointer-events:none;box-shadow:0 4px 18px var(--shadow-soft)
+}
+.whatsapp-float:hover .whatsapp-tooltip{opacity:1;transform:translateX(0)}
+
+/* =====================
+   RESPONSIVE — TABLET
+===================== */
+@media(max-width:1024px){
+  .container{padding:0 28px}
+  .nav-container{padding:0 28px}
+  .nav-links{gap:18px}
+  .hero-content{gap:40px;padding:96px 28px 60px}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .gallery-grid{columns:2}
+  .localizacao-grid{gap:32px}
+  .contato-grid{gap:36px}
+  .footer-content{padding:48px 28px 36px;gap:32px}
+  .footer-bottom{padding:18px 28px}
+}
+
+/* =====================
+   RESPONSIVE — MOBILE
+===================== */
+@media(max-width:768px){
+  .container{padding:0 18px}
+  .nav-container{padding:0 18px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .nav-brand-sub{font-size:.46rem;letter-spacing:.16em}
+
+  /* Hero */
+  #home{min-height:auto}
+  .hero-ornament{display:none}
+  .hero-content{
+    grid-template-columns:1fr;
+    padding:84px 18px 56px;
+    gap:0;text-align:center
+  }
+  .hero-text{order:1}
+  .hero-image-area{order:2;margin-top:30px}
+  .hero-eyebrow{display:none}
+  .hero-title{font-size:clamp(2.6rem,9vw,3.6rem);margin-bottom:4px}
+  .hero-subtitle{font-size:1.05rem;margin-bottom:18px}
+  .hero-desc{font-size:.84rem;margin:0 auto 28px;max-width:340px}
+  .hero-actions{
+    justify-content:center;flex-direction:column;
+    align-items:stretch;gap:11px
+  }
+  .btn-primary,.btn-outline{
+    width:100%;justify-content:center;
+    padding:15px 18px;font-size:.72rem
+  }
+  .hero-pills{
+    justify-content:center;gap:8px;
+    margin-top:26px;padding-top:26px
+  }
+  .hero-pill{font-size:.6rem;padding:7px 11px}
+  .hero-float-tag{display:none}
+  .hero-img-frame{
+    max-height:none;aspect-ratio:3/4;height:auto;
+    border-radius:16px;overflow:hidden;
+    width:min(290px,78vw);margin:0 auto
+  }
+  .hero-img-frame::before{display:none}
+  .hero-img-frame img{
+    width:100%;height:100%;object-fit:cover;
+    object-position:center 12%
+  }
+  .hero-badge{
+    position:static;display:flex;justify-content:center;
+    border:var(--bw);padding:11px 16px;
+    margin:10px auto 0;width:fit-content;
+    border-radius:8px
+  }
+
+  /* Sections */
+  section{padding:72px 0!important}
+  #home{padding-top:0!important}
+
+  /* Services */
+  .services-grid{grid-template-columns:1fr;gap:14px}
+  .service-card{padding:22px 18px}
+  .sc-footer{flex-wrap:wrap;gap:10px}
+  .btn-service{width:100%;text-align:center;padding:11px 14px;font-size:.66rem}
+
+  /* Gallery */
+  .gallery-grid{columns:1}
+  .gallery-item{margin-bottom:12px;border-radius:10px}
+  .gallery-header{flex-direction:column;align-items:flex-start;gap:14px}
+
+  /* Localizacao */
+  .localizacao-grid{grid-template-columns:1fr;gap:28px}
+  .map-iframe{height:240px}
+  .map-container::before{display:none}
+
+  /* Contato */
+  .contato-grid{grid-template-columns:1fr;gap:32px}
+  .social-link{padding:11px 14px}
+  .cta-box{padding:26px 20px}
+
+  /* Footer */
+  .footer-content{
+    grid-template-columns:1fr;
+    padding:40px 18px 28px;gap:28px
+  }
+  .footer-bottom{
+    padding:16px 18px;
+    flex-direction:column;text-align:center
+  }
+  .footer-gold-line{width:100%;min-width:auto}
+}
+
+@media(max-width:480px){
+  .hero-img-frame{width:min(260px,76vw)}
+  .hero-title{font-size:clamp(2.4rem,10vw,3rem)}
+  .gallery-grid{columns:1}
+  .map-iframe{height:210px}
+  .whatsapp-btn{width:54px;height:54px}
+  .whatsapp-btn svg{width:25px;height:25px}
+  .services-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ========= NAVBAR ========= -->
+<nav id="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">
+      <div class="logo-box">
+        <img src="logo.jpeg" alt="Logo Dayana Lacerda">
+      </div>
+      <div class="nav-brand">
+        <span class="nav-brand-name">Dayana Lacerda</span>
+        <span class="nav-brand-sub">Estética Avançada</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="#home">Início</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#galeria">Galeria</a>
+      <a href="#localizacao">Localização</a>
+      <a href="#contato">Contato</a>
+      <a href="https://wa.me/5583986044700" target="_blank" class="nav-cta">Agendar</a>
+    </div>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()" aria-label="Fechar">✕</button>
+  <a href="#home" onclick="toggleMenu()">Início</a>
+  <a href="#servicos" onclick="toggleMenu()">Serviços</a>
+  <a href="#galeria" onclick="toggleMenu()">Galeria</a>
+  <a href="#localizacao" onclick="toggleMenu()">Localização</a>
+  <a href="#contato" onclick="toggleMenu()">Contato</a>
+  <a href="https://wa.me/5583986044700" target="_blank" onclick="toggleMenu()" class="mobile-cta-btn">✦ Agendar Agora</a>
+</div>
+
+<!-- ========= HERO ========= -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-ornament"></div>
+  <div class="hero-content">
+
+    <div class="hero-text">
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span>Estética Avançada</span>
+      </div>
+      <h1 class="hero-title">
+        Dayana
+        <em>Lacerda</em>
+      </h1>
+      <p class="hero-subtitle">Realçando sua beleza com elegância e cuidado</p>
+      <p class="hero-desc">
+        Aqui, cada detalhe é pensado para realçar sua beleza natural com sofisticação e elevar sua autoestima.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/5583986044700" target="_blank" class="btn-primary">
+          <span>✦ Agendar Consulta</span>
+        </a>
+        <a href="#servicos" class="btn-outline">Ver Serviços</a>
+      </div>
+      <div class="hero-pills">
+        <div class="hero-pill"><div class="hero-pill-dot"></div>Estética</div>
+        <div class="hero-pill"><div class="hero-pill-dot"></div>Profissionalismo</div>
+        <div class="hero-pill"><div class="hero-pill-dot"></div>Beleza</div>
+        <div class="hero-pill"><div class="hero-pill-dot"></div>Saúde</div>
+      </div>
+    </div>
+
+    <div class="hero-image-area reveal-r">
+      <div class="hero-float-tag"><span>Estética &amp; Beleza</span></div>
+      <div class="hero-img-frame">
+        <img src="Dayane.jpeg" alt="Dayana Lacerda">
+      </div>
+      <div class="hero-badge">
+        <div class="hero-badge-inner">
+          <div class="badge-dot"></div>
+          <div class="badge-text">
+            <strong>Agenda Aberta</strong>
+            Agende seu horário hoje
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========= SERVIÇOS ========= -->
+<section id="servicos">
+  <div class="container">
+    <div class="services-header reveal">
+      <span class="section-tag">Procedimentos</span>
+      <h2 class="section-title">Nossos <em>Serviços</em></h2>
+      <div class="wine-line"></div>
+      <p class="section-subtitle">Tratamentos estéticos personalizados com técnica avançada e produtos de primeira linha.</p>
+    </div>
+    <div class="services-grid">
+ <div class="service-card reveal d1">
+        <div class="sc-icon">📐</div>
+        <div class="sc-name">Desing de Sobracelhas personalizado</div>
+        <div class="sc-desc">Design sob medida para o seu rosto, realçando o olhar naturalmente.</div>
+        <div class="sc-footer">
+          <div class="sc-price"><small></small>R$ 25,00</div>
+          <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+        </div>
+      </div>
+       <div class="service-card reveal d1">
+        <div class="sc-icon">✨</div>
+        <div class="sc-name">Micropigmentação</div>
+        <div class="sc-desc">Micropigmentação fio a fio</div>
+        <div class="sc-footer">
+          <div class="sc-price"><small></small>R$ 300,00</div>
+          <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+        </div>
+      </div>
+      <div class="service-card reveal d2">
+  <div class="sc-icon">🌿</div>
+  <div class="sc-name">Design com Henna</div>
+  <div class="sc-desc">Modelagem das sobrancelhas com aplicação de henna para maior definição e preenchimento.</div>
+  <div class="sc-footer">
+    <div class="sc-price"><small></small>R$ 35,00</div>
+    <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+  </div>
+</div>
+
+<div class="service-card reveal d3">
+  <div class="sc-icon">✨</div>
+  <div class="sc-name">Epilação de Buço</div>
+  <div class="sc-desc">Remoção dos pelos do buço com acabamento suave e duradouro.</div>
+  <div class="sc-footer">
+    <div class="sc-price"><small></small>R$ 10,00</div>
+    <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+  </div>
+</div>
+
+<div class="service-card reveal d1">
+  <div class="sc-icon">🌸</div>
+  <div class="sc-name">Epilação Facial</div>
+  <div class="sc-desc">Remoção dos pelos faciais proporcionando uma pele mais lisa e uniforme.</div>
+  <div class="sc-footer">
+    <div class="sc-price"><small></small>R$ 40,00</div>
+    <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+  </div>
+</div>
+
+<div class="service-card reveal d2">
+  <div class="sc-icon">⚡</div>
+  <div class="sc-name">Jato de Plasma</div>
+  <div class="sc-desc">Procedimento avançado para rejuvenescimento, remoção de manchas e melhora da flacidez.</div>
+  <div class="sc-footer">
+    <div class="sc-price"><small></small>R$ 100,00</div>
+    <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+  </div>
+</div>
+
+<div class="service-card reveal d3">
+  <div class="sc-icon">🔬</div>
+  <div class="sc-name">Remoção de Sinais</div>
+  <div class="sc-desc">Procedimento estético para remoção de sinais e pequenas lesões superficiais.</div>
+  <div class="sc-footer">
+    <div class="sc-price"><small>A partir de</small>R$ 50,00</div>
+    <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+  </div>
+</div>
+      <div class="service-card reveal d1">
+        <div class="sc-icon">🌿</div>
+        <div class="sc-name">Limpeza de Pele</div>
+        <div class="sc-desc">Limpeza profunda com hidratação e revitalização da pele.</div>
+        <div class="sc-footer">
+          <div class="sc-price"><small></small>R$ 120,00</div>
+          <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal d2">
+        <div class="sc-icon">✨</div>
+        <div class="sc-name">Microagulhamento</div>
+        <div class="sc-desc">Estimula colágeno, melhora manchas, cicatrizes e textura da pele.</div>
+        <div class="sc-footer">
+          <div class="sc-price"><small></small>R$ 200,00</div>
+          <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal d3">
+        <div class="sc-icon">🌟</div>
+        <div class="sc-name">Peeling</div>
+        <div class="sc-desc">Renovação celular para suavizar manchas e linhas finas.</div>
+        <div class="sc-footer">
+          <div class="sc-price"><small></small>R$ 150,00</div>
+          <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal d1">
+        <div class="sc-icon">💧</div>
+        <div class="sc-name">Skinbooster</div>
+        <div class="sc-desc">Hidratação profunda e rejuvenescimento facial avançado.</div>
+        <div class="sc-footer">
+          <div class="sc-price"><small></small>R$ 200,00</div>
+          <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal d2">
+        <div class="sc-icon">💎</div>
+        <div class="sc-name">Botox</div>
+        <div class="sc-desc">Suavização de rugas e linhas de expressão com naturalidade.</div>
+        <div class="sc-footer">
+          <div class="sc-price"><small></small>R$ 650,00</div>
+          <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal d3">
+        <div class="sc-icon">🌸</div>
+        <div class="sc-name">Bioestimulador</div>
+        <div class="sc-desc">Estímulo intenso de colágeno para firmeza e rejuvenescimento.</div>
+        <div class="sc-footer">
+          <div class="sc-price"><small></small>R$ 1.000,00</div>
+          <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal d1">
+        <div class="sc-icon">💋</div>
+        <div class="sc-name">Preenchimento</div>
+        <div class="sc-desc">Contorno facial e volume com ácido hialurônico.</div>
+        <div class="sc-footer">
+          <div class="sc-price"><small></small>R$ 700,00</div>
+          <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal d2">
+        <div class="sc-icon">🔥</div>
+        <div class="sc-name">Gordura Localizada</div>
+        <div class="sc-desc">Tratamento corporal para redução de medidas e definição.</div>
+        <div class="sc-footer">
+          <div class="sc-price"><small>3 sessões</small>R$ 300,00</div>
+          <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal d3">
+        <div class="sc-icon">🌺</div>
+        <div class="sc-name">Flacidez</div>
+        <div class="sc-desc">Procedimento estético para firmeza e sustentação da pele.</div>
+        <div class="sc-footer">
+          <div class="sc-price"><small>3 sessões</small>R$ 300,00</div>
+          <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal d1">
+        <div class="sc-icon">🩸</div>
+        <div class="sc-name">PEIM</div>
+        <div class="sc-desc">Tratamento para vasinhos com técnica segura e eficiente.</div>
+        <div class="sc-footer">
+          <div class="sc-price"><small>4 sessões</small>R$ 360,00</div>
+          <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal d2">
+        <div class="sc-icon">🧵</div>
+        <div class="sc-name">Fios Lisos</div>
+        <div class="sc-desc">Sustentação facial e estímulo de colágeno com fios absorvíveis.</div>
+        <div class="sc-footer">
+          <div class="sc-price"><small>10 fios</small>R$ 500,00</div>
+          <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal d3">
+        <div class="sc-icon">💫</div>
+        <div class="sc-name">Fio Filler</div>
+        <div class="sc-desc">Procedimento para firmeza, volume e rejuvenescimento simultâneo.</div>
+        <div class="sc-footer">
+          <div class="sc-price"><small>Par</small>R$ 400,00</div>
+          <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal d1">
+        <div class="sc-icon">🏃‍♀️</div>
+        <div class="sc-name">Glúteo Max</div>
+        <div class="sc-desc">Procedimento corporal para volume e definição dos glúteos.</div>
+        <div class="sc-footer">
+          <div class="sc-price"><small>3 sessões</small>R$ 600,00</div>
+          <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+        </div>
+      </div>
+
+      <div class="service-card reveal d2">
+        <div class="sc-icon">🌼</div>
+        <div class="sc-name">Subcisão de Celulite</div>
+        <div class="sc-desc">Tratamento para suavizar celulite e melhorar a textura da pele.</div>
+        <div class="sc-footer">
+          <div class="sc-price"><small>3 sessões</small>R$ 300,00</div>
+          <a href="https://wa.me/5583986044700" target="_blank" class="btn-service">Agendar</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========= GALERIA ========= -->
+<section id="galeria">
+  <div class="container">
+    <div class="gallery-header">
+      <div class="reveal">
+        <span class="section-tag">Resultados</span>
+        <h2 class="section-title">Galeria <em>de Fotos</em></h2>
+        <div class="wine-line-left"></div>
+      </div>
+      <div class="gallery-filters reveal">
+        <button class="filter-btn active" onclick="filterGallery(this,'all')">Todos</button>
+        <button class="filter-btn" onclick="filterGallery(this,'dr')">Dayana</button>
+        <button class="filter-btn" onclick="filterGallery(this,'clinica')">Clínica</button>
+      </div>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+  
+      <div class="gallery-item" data-cat="clinica">
+        <img src="Clinica.jpeg" alt="Clínica" onclick="openImage(this.src)">
+        <div class="gallery-overlay"><span class="overlay-text">Clínica</span></div>
+      </div>
+      <div class="gallery-item" data-cat="clinica">
+        <img src="clinica2.jpeg" alt="Clínica" onclick="openImage(this.src)">
+        <div class="gallery-overlay"><span class="overlay-text">Clínica</span></div>
+      </div>
+     
+      <div class="gallery-item" data-cat="clinica">
+        <img src="clinica4.jpeg" alt="Clínica" onclick="openImage(this.src)">
+        <div class="gallery-overlay"><span class="overlay-text">Clínica</span></div>
+      </div>
+      <div class="gallery-item" data-cat="clinica">
+        <img src="clinica5.jpeg" alt="Clínica" onclick="openImage(this.src)">
+        <div class="gallery-overlay"><span class="overlay-text">Clínica</span></div>
+      </div>
+      <div class="gallery-item" data-cat="clinica">
+        <img src="clinica6.jpeg" alt="Clínica" onclick="openImage(this.src)">
+        <div class="gallery-overlay"><span class="overlay-text">Clínica</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div id="imageModal" class="image-modal" onclick="closeImage()">
+  <button class="modal-close" onclick="closeImage()">&times;</button>
+  <img id="modalImage" class="modal-image" src="" alt="Imagem ampliada">
+</div>
+
+<!-- ========= LOCALIZAÇÃO ========= -->
+<section id="localizacao">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:52px;">
+      <span class="section-tag">Como Chegar</span>
+      <h2 class="section-title">Nossa <em>Localização</em></h2>
+      <div class="wine-line"></div>
+    </div>
+    <div class="localizacao-grid">
+      <div class="map-container reveal-l">
+        <iframe
+          class="map-iframe"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3958.5636853007427!2d-34.8701954!3d-7.1763267!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ace9de74799a1f%3A0x7edf072cc398d943!2sR.%20Em%C3%ADdio%20Marques%20do%20Vale%2C%20149%20-%20Ernesto%20Geisel%2C%20Jo%C3%A3o%20Pessoa%20-%20PB%2C%2058075-130!5e0!3m2!1spt-BR!2sbr!4v1780095968586!5m2!1spt-BR!2sbr"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Localização Dayana Lacerda Estética">
+        </iframe>
+      </div>
+      <div class="reveal-r">
+        <div class="info-block">
+          <div class="info-block-title">Endereço</div>
+          <div class="info-block-content">
+            Rua Emídio Marques do Vale, nº 149<br>
+            Bairro Ernesto Geisel – João Pessoa, PB<br>
+            CEP: 58075-130
+          </div>
+          <a href="https://maps.app.goo.gl/nPxy4SRFHumWDQ1NA" target="_blank" class="btn-directions">
+            🗺️ Como Chegar
+          </a>
+        </div>
+        <div class="info-block">
+          <div class="info-block-title">Contato Rápido</div>
+          <a href="https://wa.me/5583986044700" target="_blank" class="info-link">
+            <div class="info-link-icon">📱</div>
+            (83) 98604-4700 – WhatsApp
+          </a>
+          <a href="https://www.instagram.com/daylacerdaestetica" target="_blank" class="info-link">
+            <div class="info-link-icon">📷</div>
+            @daylacerdaestetica
+          </a>
+        </div>
+        <div class="info-block">
+          <div class="info-block-title">Horário de Funcionamento (por agendamento)</div>
+          <div class="horario-list">
+            <div class="horario-item"><span class="horario-dia">Terça-feira</span><span class="horario-hora">08h – 18h</span></div>
+            <div class="horario-item"><span class="horario-dia">Quinta-feira</span><span class="horario-hora">08h – 18h</span></div>
+            <div class="horario-item"><span class="horario-dia">Sábado</span><span class="horario-hora">08h – 18h</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========= CONTATO ========= -->
+<section id="contato">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:60px;">
+      <span class="section-tag" style="color:rgba(200,169,107,.7)">Fale Conosco</span>
+      <h2 class="section-title" style="color:var(--beige-light)">Entre em <em style="color:var(--gold-b)">Contato</em></h2>
+      <div class="gold-line"></div>
+      <p class="section-subtitle" style="color:rgba(203,186,167,.6);margin:0 auto;">
+        Agende sua consulta, tire dúvidas ou solicite informações. Estamos aqui para você.
+      </p>
+    </div>
+    <div class="contato-grid">
+
+      <div class="reveal-l">
+        <span class="section-tag contato-section-tag">Dayana Lacerda</span>
+        <h3 class="section-title contato-title" style="font-size:2rem;">Vamos conversar<em>?</em></h3>
+        <div class="contato-divider"></div>
+        <p class="contato-tagline">
+          Agende seu horário e descubra como podemos realçar sua beleza natural com cuidado e profissionalismo.
+        </p>
+        <div class="social-links">
+          <a href="https://wa.me/5583986044700" target="_blank" class="social-link">
+            <div class="sl-icon">📱</div>
+            <div>
+              <div class="sl-name">WhatsApp</div>
+              <div class="sl-handle">(83) 98604-4700</div>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/daylacerdaestetica" target="_blank" class="social-link">
+            <div class="sl-icon">📷</div>
+            <div>
+              <div class="sl-name">Instagram</div>
+              <div class="sl-handle">@daylacerdaestetica</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal-r">
+        <div class="cta-box">
+          <p class="cta-box-title">Pronta para se cuidar?</p>
+          <p class="cta-box-sub">
+            Entre em contato pelo WhatsApp e agende seu horário de forma rápida, simples e personalizada.
+          </p>
+          <a href="https://wa.me/5583986044700" target="_blank" class="btn-primary" style="width:100%;justify-content:center;">
+            <span>✦ Falar no WhatsApp</span>
+          </a>
+          <div class="cta-box-divider"></div>
+          <div class="cta-box-meta">
+            <div class="cta-badge-dot"></div>
+            Seg, Qua, Sex e Sáb · 8h–18h · João Pessoa, PB
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========= FOOTER ========= -->
+<footer>
+  <div class="footer-content">
+    <div>
+      <div class="footer-logo-area">
+        <div class="footer-logo-circle">
+          <img src="logo.jpeg" alt="Logo Dayana Lacerda">
+        </div>
+        <div>
+          <div class="footer-brand-name">Dayana Lacerda</div>
+          <div class="footer-brand-sub">Estética Avançada</div>
+        </div>
+      </div>
+      <p class="footer-tagline">"Realçando sua beleza com elegância, técnica e muito cuidado."</p>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Navegação</div>
+      <div class="footer-links">
+        <a href="#home">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#localizacao">Localização</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Contato</div>
+      <div class="footer-contact-info">
+        <span>📍 João Pessoa, PB</span>
+        <span>📱 (83) 98604-4700</span>
+        <span>📷 @daylacerdaestetica</span>
+        <span>⏰ Seg, Qua, Sex e Sáb · 8h–18h</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 <span>Dayana Lacerda Estética</span>. Todos os direitos reservados.</div>
+    <div class="footer-gold-line"></div>
+    <div class="footer-copy">João Pessoa, Paraíba – Brasil</div>
+  </div>
+</footer>
+
+<!-- ========= WHATSAPP FLOAT ========= -->
+<div class="whatsapp-float">
+  <div class="whatsapp-tooltip">Falar no WhatsApp</div>
+  <a href="https://wa.me/5583986044700" target="_blank">
+    <div class="whatsapp-btn">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </div>
+  </a>
+</div>
+
+<!-- ========= JAVASCRIPT ========= -->
+<script>
+// NAVBAR
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',scrollY>50));
+
+// MOBILE MENU
+function toggleMenu(){
+  const m=document.getElementById('mobileMenu');
+  m.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+
+// SCROLL REVEAL
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.1,rootMargin:'0px 0px -36px 0px'});
+document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el=>obs.observe(el));
+
+// GALLERY FILTER
+function filterGallery(btn,cat){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.gallery-item').forEach(item=>{
+    if(cat==='all'||item.dataset.cat===cat){
+      item.style.display='';
+      item.style.opacity='1';
+    }else{
+      item.style.opacity='0';
+      setTimeout(()=>{if(item.style.opacity==='0')item.style.display='none';},300);
+    }
+  });
+}
+
+// MODAL
+function openImage(src){
+  document.getElementById('modalImage').src=src;
+  document.getElementById('imageModal').classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function closeImage(){
+  document.getElementById('imageModal').classList.remove('active');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeImage()});
+
+// ACTIVE NAV
+const secs=document.querySelectorAll('section[id]');
+const nls=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  secs.forEach(s=>{if(scrollY>=s.offsetTop-200)cur=s.getAttribute('id')});
+  nls.forEach(l=>{l.style.color=l.getAttribute('href')==='#'+cur?'var(--wine)':''});
+});
+
+// PAGE FADE
+document.addEventListener('DOMContentLoaded',()=>{
+  document.body.style.opacity='0';
+  document.body.style.transition='opacity .5s ease';
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{document.body.style.opacity='1'}));
+});
+</script>
+</body>
+</html>
